@@ -37,12 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('/log', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ start: startTime, end: endTime })
-});
-
+            const response = await fetch('https://study-tracker-arcb.onrender.com/log', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(sessionData)
             });
 
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -67,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch streak and recent sessions
     async function fetchSessions() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/get_sessions');
+            const response = await fetch('https://study-tracker-arcb.onrender.com/get_sessions');
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
             const data = await response.json();
