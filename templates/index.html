@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Session Tracker</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Study Session Tracker</h1>
+        
+        <form id="study-log-form">
+            <div>
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject">
+                    <option value="Quant">Quantitative Aptitude (Quant)</option>
+                    <option value="VA">Verbal Ability (VA)</option>
+                    <option value="RC">Reading Comprehension (RC)</option>
+                    <option value="LR">Logical Reasoning (LR)</option>
+                    <option value="DI">Data Interpretation (DI)</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            
+            <div id="other-subject-container" style="display: none; margin-top: 10px;">
+                <label for="other-subject">Specify Subject:</label>
+                <input type="text" id="other-subject" name="other-subject" placeholder="Enter subject name">
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="What did you study?" rows="3"></textarea>
+            </div>
+            
+            <div style="text-align: center;">
+                <button type="button" id="start-session">Start Session</button>
+                <button type="button" id="end-session" disabled>End Session</button>
+            </div>
+        </form>
+
+        <h2>Your Streak: <span id="streak">0</span> days</h2>
+        
+        <h3>Recent Study Sessions</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="recent-sessions">
+                <!-- Sessions will be dynamically loaded here -->
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/all_sessions">View All Sessions</a>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
