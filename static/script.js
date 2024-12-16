@@ -37,10 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://0.0.0.0:5000/log', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(sessionData)
+            const response = await fetch('/log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ start: startTime, end: endTime })
+});
+
             });
 
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
